@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Center</title>
+		<style>
+body {
+	margin: 0;
+}
+
+.crosshair {
+	background: white;
+	column-gap: 1px;
+	row-gap: 1px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	height: 100vh;
+	width: 100vw;
+}
+
+.quarter {
+	background: black;
+}
+		</style>
+	</head>
+	<body>
+		<div id="crosshair" class="crosshair">
+			<div class="quarter"></div>
+			<div class="quarter"></div>
+			<div class="quarter"></div>
+			<div class="quarter"></div>
+		</div>
+		<script>
+let crosshair = document.querySelector('#crosshair');
+
+crosshair.addEventListener('click', () => {
+	if (!document.fullscreenElement) {
+		crosshair.requestFullscreen();
+	} else {
+		document.exitFullscreen();
+	}
+});
+		</script>
+	</body>
+</html>
